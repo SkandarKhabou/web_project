@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <LINK href="styles.css" rel="stylesheet">
+      <title>Document</title>
+   </head>
+   <body>
+      <header>
+         <h3>Contact Me</h3>
+      </header>
+      <br><br>
+      <section>
+         <article>
+            <nav>
+               <a  href="../index.html">
+                  <p style="font-size: 20px;">Home</p>
+               </a>
+               <hr>
+               <br>
+               <a  href="academicbackground.html">
+                  <p style="font-size: 20px;">Academic background</p>
+               </a>
+               <hr>
+               <br>
+               <a  href="skills.html">
+                  <p style="font-size: 20px;">Skills</p>
+               </a>
+               <hr>
+               <br>
+               <a  href="intership.html">
+                  <p style="font-size: 20px;">Internship</p>
+               </a>
+               <hr>
+               <br>
+               <a  href="training.html">
+                  <p style="font-size: 20px;">Training</p>
+               </a>
+               <hr>
+               <br>
+               <a  href="projects.html">
+                  <p style="font-size: 20px;">Projects</p>
+               </a>
+               <hr>
+               <br>
+               <a  href="PassionEtSport.html">
+                  <p style="font-size: 20px;">Passion and Sport</p>
+               </a>
+               <hr>
+               <br>
+               <a  href="quizz.html">
+                  <p style="font-size: 20px;">Quizz</p>
+               </a>
+               <hr>
+               <br>
+               <a  href="testimonial.html">
+                  <p style="font-size: 20px;">Testimonial on IIT</p>
+               </a>
+               <hr>
+               <br>
+            </nav>
+         </article>
+         <aside>
+            <form id="email-form"  >
+               <label>Name:</label>
+               <input type="text" id="name" required>
+               <br>
+               <label>Email:</label>
+               <input type="email" id="email" required>
+               <br>
+               <label>Subject:</label>
+               <input type="text" id="subject" required>
+               <br>
+               <label>Message:</label>
+               <textarea id="message" required></textarea>
+               <br>
+               <button type="submit">Send</button>
+             </form>
+             
+           
+         </aside>
+      </section>
+      <script >
+      document.getElementById("email-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // to prevent the form from submitting and refreshing the page
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let subject = document.getElementById("subject").value;
+  let message = document.getElementById("message").value;
+
+  let transporter = nodemailer.createTransport({
+   service: 'gmail',
+   auth: {
+      user: 'hypercoolz1@gmail.com',
+      pass: 'skandar2481632**'
+   }  
+});
+  // Prepare the email data
+  let mailOptions = {
+    from: 'hypercoolz1@gmail.com',
+    to: 'skandarporo@gmail.com',
+    subject: subject,
+    text: message
+  };
+
+  // Send the email
+  try{
+let info =  transporter.sendMail(mailOptions);
+console.log(`Email sent: ${info.response}`);
+}catch(error){
+console.log(error);
+}
+});
+      </script>
+   </body>
+</html>
